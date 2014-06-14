@@ -1,3 +1,3 @@
 $( document ).ready(function() {
-  navigator.geolocation.getCurrentPosition(function(p){document.getElementById('gps').value = p.coords.latitude+','+p.coords.longitude});
+  navigator.geolocation.getCurrentPosition(function(p){$('#gps').value = p.coords.latitude+','+p.coords.longitude});
 });
