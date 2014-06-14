@@ -1,0 +1,9 @@
+{
+  "name": "saltines",
+  "description": "An app that captures illegal fishing activity and stores the number of boats that are fishing.",
+  "author": "hackathon",
+  "dependencies": {
+    "tropo-webapi": "1.0.16"
+  },
+  "engine": "node 0.4.1"
+}
