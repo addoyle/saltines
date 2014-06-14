@@ -14,6 +14,10 @@ module.exports = {
 	}
 	
 	postUserInfo: function(name,phone,email,COO, callback) {
-		db.query('INSERT INTO user_data (User_Name, Phone, Email, COO) VALUES ('name', 'phone', 'email', 'COO')';', callback);
+		db.query('INSERT INTO user_data (User_Name, Phone, Email, COO) VALUES ('name', 'phone', 'email', 'COO');', callback);
+	}
+	
+	postBoatInfo: function(name, capacity, material, length, numMotors, callback) {
+		db.query('INSERT INTO ship_info (name, capacity, material, length, num_motors) VALUES ('name', 'capacity', 'material', 'length', 'numMotors');', callback);
 	}
 }
