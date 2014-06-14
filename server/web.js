@@ -21,29 +21,30 @@ app.use(bodyParser.urlencoded());
 app.get('/', function(req, res) {
 	var id = req.query.id || 66987326581;
 
-	model.getName(id, function(err, users) {
-		model.getBoat(id, function(err, ships) {
-			model.getFish(id, function(err, fishes) {
-				console.log(fishes);
-				if (!err) {
-					var status;
-					if (users[0].License_Type != 0 && users[0].Suspended == 0){
-						status = 'Good';
-					}
-					else if (users[0].Suspended == 0){
-						status = 'Suspended';
-					}
-					else {
-						status = 'Invalid';
-					}
+	// model.getName(id, function(err, users) {
+	// 	model.getBoat(id, function(err, ships) {
+	// 		model.getFish(id, function(err, fishes) {
+	// 			if (!err) {
+	// 				var status;
+	// 				if (users[0].License_Type != 0 && users[0].Suspended == 0){
+	// 					status = 'Good';
+	// 				}
+	// 				else if (users[0].Suspended == 0){
+	// 					status = 'Suspended';
+	// 				}
+	// 				else {
+	// 					status = 'Invalid';
+	// 				}
 
-					res.render('index', {user: users[0], ship: ships[0], fishes: fishes, status: status});
-				} else {
-					res.render('error');
-				}
-			});
-		});
-	});
+	// 				res.render('index', {user: users[0], ship: ships[0], fishes: fishes, status: status});
+	// 			} else {
+	// 				res.render('error');
+	// 			}
+	// 		});
+	// 	});
+	// });
+
+	res.render('index', {status: 'Good', user: {User_Name: 'Andy Doyle'}, fishes: [{species: 'Herp derp', weight: 100, count: 100}]})
 });
 
 app.get('/register', function(req, res) {
