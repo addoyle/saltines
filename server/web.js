@@ -17,23 +17,24 @@ app.get('/test', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-	console.log(req);
-	var id = req.query.id || 12345678911;
+	var id = req.query.id || 66987326581;
 
-	model.getName(id, function(err, rows) {
-		if (!err) {
-			res.render('index', {user_name: rows[0].User_Name});
-		} else {
-			res.render('unscanned');
-		}
+	model.getName(id, function(err, users) {
+		model.getBoat(id, function(err, ships) {
+			model.getFish(id, function(err, fishes) {
+				if (!err) {
+					res.render('index', {user: users[0], ship: ships[0], fish: fishes[0]});
+				} else {
+					res.render('error');
+				}
+			});
+		});
 	});
-	
-	model.getBoat(id, function(err, rows) {
-		if (!err) {
-			res.render('index', {boat: rows[0].name});
-		} else {
-			res.render('unscanned');
-		}
+});
+
+app.post('/register', function(req, res) {
+	model.registerBoat(req.body, function(err, rows) {
+		res.render('thankyou');
 	});
 });
 
