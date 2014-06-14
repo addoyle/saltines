@@ -5,10 +5,13 @@ var config = {web: {port: 8080}};
 var express = require('express');
 var app = express();
 
-app.get('/', function(req, res) {
-	res.send('Hello World');
+app.use(express.static('www'));
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.use(require('express-ejs-layouts'))
+
+app.get('/test', function(req, res) {
+	res.render('index');
 });
 
-var server = app.listen(config.web.port, function() {
-	console.log('Web service listening on port '+config.web.port)
-});
+var server = app.listen(config.web.port);

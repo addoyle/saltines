@@ -4,7 +4,10 @@
   "author": "hackathon",
   "dependencies": {
     "tropo-webapi": "1.0.16",
-    "express": "4.4.3"
+    "express": "4.4.3",
+    "ejs": "1.0.0",
+    "express-ejs-layouts": "1.1.0",
+    "mysql": "2.3.2"
   },
   "repository": {
 	  "type": "git",
