@@ -10,11 +10,11 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(require('express-ejs-layouts'))
 
-app.get('/test', function(req, res) {
-	model.getBoats(function(err, rows) {
-		res.render('index', {solution: rows[0].solution});
-	});
-});
+//app.get('/test', function(req, res) {
+//	model.getBoats(function(err, rows) {
+//		res.render('index', {solution: rows[0].solution});
+//	});
+//});
 
 app.get('/', function(req, res) {
 	var id = req.query.id || 66987326581;
@@ -23,7 +23,18 @@ app.get('/', function(req, res) {
 		model.getBoat(id, function(err, ships) {
 			model.getFish(id, function(err, fishes) {
 				if (!err) {
-					res.render('index', {user: users[0], ship: ships[0], fish: fishes[0]});
+					var status;
+					if (users[0].License_Type != 0 && users[0].Suspended == 0){
+						status = 'Good';
+					}
+					else if (users[0].Suspended == 0){
+						status = 'Suspended';
+					}
+					else {
+						status = 'Invalid';
+					}
+
+					res.render('index', {user: users[0], ship: ships[0], fish: fishes[0], status: status});
 				} else {
 					res.render('error');
 				}
