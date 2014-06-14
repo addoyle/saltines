@@ -29,6 +29,10 @@ function initialize() {
 
   var cloudLayer = new google.maps.weather.CloudLayer();
   cloudLayer.setMap(map);
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(p){map.setCenter(new google.maps.LatLng(p.coords.latitude, p.coords.longitude), 6);}, error);
+  }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
