@@ -4,11 +4,13 @@ var express = require('express');
 var app = express();
 var mysql = require('mysql');
 var model = require('../model/query.js');
+var bodyParser = require('body-parser');
 
 app.use(express.static('www'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(require('express-ejs-layouts'))
+app.use(bodyParser.urlencoded());
 
 //app.get('/test', function(req, res) {
 //	model.getBoats(function(err, rows) {
@@ -43,10 +45,26 @@ app.get('/', function(req, res) {
 	});
 });
 
+app.get('/register', function(req, res) {
+	res.render('register');
+});
+
 app.post('/register', function(req, res) {
-	model.registerBoat(req.body, function(err, rows) {
+	model.postUserAndBoat(req.body, function(err, rows) {
 		res.render('thankyou');
 	});
+});
+
+app.get('/fishquota', function(req, res) {
+	res.render('fishquota');
+});
+
+app.get('/fishinfo', function(req, res) {
+	res.render('fishinfo');
+});
+
+app.get('/report', function(req, res) {
+	res.render('report');
 });
 
 var server = app.listen(GLOBAL.config.port);

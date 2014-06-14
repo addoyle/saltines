@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Heatmaps</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
     <style>
       html, body, #map-canvas {
-        height: 100%;
+        height: 95%;
         margin: 0px;
         padding: 0px
       }
@@ -25,18 +26,17 @@
 // Adding 500 Data Points
 var map, pointarray, heatmap;
 
+var numFish = 5; //google allows 1000 fish maximum.
+
 var fishData = [
   new google.maps.LatLng(10.2830492,-20.0478406),
   new google.maps.LatLng(8.6793392,-14.4667857),
   new google.maps.LatLng(10.2830492,-20.0478406),
-  new google.maps.LatLng(10.2830492,-20.0478406),
-  new google.maps.LatLng(10.2830492,-20.0478406),
-  new google.maps.LatLng(10.2830492,-20.0478406),
-  new google.maps.LatLng(10.2830492,-20.0478406),
-  new google.maps.LatLng(10.2830492,-20.0478406),
+  new google.maps.LatLng(9.2830492,-16.0478406),
   new google.maps.LatLng(10.2830492,-20.0478406)
   /*for(rows){
     new google.maps.LatLng(x, y),
+    new google.maps.LatLng(coords),
     new google.maps.LatLng(coords),
     new google.maps.LatLng(coords)
   }*/
@@ -54,8 +54,11 @@ function initialize() {
 
   var pointArray = new google.maps.MVCArray(fishData);
 
+  var default_radius = 1000 / numFish;
+
   heatmap = new google.maps.visualization.HeatmapLayer({
-    data: pointArray
+    data: pointArray,
+    radius: default_radius
   });
 
   heatmap.setMap(map);
@@ -86,7 +89,7 @@ function changeGradient() {
 }
 
 function changeRadius() {
-  heatmap.set('radius', heatmap.get('radius') ? null : 20);
+  heatmap.set('radius', heatmap.get('radius') ? null : default_radius);
 }
 
 function changeOpacity() {
@@ -99,6 +102,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </head>
 
   <body>
+    <div class="row padding-md-top" style="padding-bottom:10px">
+      <div class="col-md-6 col-xs-6 text-center">
+        <button type="button" onclick="javascript:window.history.back()" class="btn btn-primary btn-lg btn-block">Back</button>
+      </div>
+    </div>
+
+
     <div id="panel">
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeGradient()">Change gradient</button>

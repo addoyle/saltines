@@ -3,25 +3,25 @@
 <div class="col-md-12">
 <h1 class="text-center"><%= user.User_Name %></h1>
 <h2 class="text-center">Status: <%= status %></h2>
-<h3 class="text-center"><%= fish.count %> <%= fish.species %> Left</h3>
+<h3 class="text-center"><%= fish.count %> <%= fish.species %> caught, <%= fish.weight %> kg</h3>
 </div>
 </div>
 <div class="row padding-md-top">
   <div class="col-md-12 text-center">
     <p>
-      <button type="button" class="btn btn-md btn-default btn-block">View Fish Details</button>
+      <a href="/fishquota" class="btn btn-md btn-default btn-block">View Fish Details</a>
     </p>
     <p>
-      <button type="button" class="btn btn-md btn-default btn-block">Rescan</button>
+      <button type="button" class="btn btn-md btn-default btn-block">Scan Another Boat</button>
     </p>
   </div>
 </div>
 <div class="row padding-md-top">
   <div class="col-md-6 col-xs-6 text-center">
-      <a class="btn btn-primary btn-lg btn-block" href="/report">Report</a>
+      <a class="btn btn-primary btn-lg btn-block" href="/report">Report Incident</a>
   </div>
   <div class="col-md-6 col-xs-6 text-center">
-      <a class="btn btn-lg btn-danger btn-block" href="tel:1234567890">SOS</a>
+      <a class="btn btn-lg btn-danger btn-block" href="tel:1234567890">Call SOS</a>
   </div>
 </div>
 </div>

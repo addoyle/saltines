@@ -1,5 +1,6 @@
 <html>
   <head>
+    <link href="css/bootstrap.css" rel="stylesheet">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -7,9 +8,15 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Country', 'Fish', 'Incidents'],
-          ['USA',  1000,      400],
-          ['West Africa',  1170,      460],
-          ['East Africa',  660,       1120],
+          ['Benin',  660,       695],
+          ['Ghana',  300,       366],
+          ['Guinea',  1170,      444],
+          ['Guinea-Bissau',  698,      241],
+          ['Liberia',  124,       98],
+          ['Nigeria',  544,       186],
+          ['Senegal',  777,      234],
+          ['Sierra Leone',  123,       55],
+          ['Togo',  654,       444],
         ]);
 
         var options = {
@@ -23,6 +30,11 @@
     </script>
   </head>
   <body>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div class="row padding-md-top">
+      <div class="col-md-6 col-xs-6 text-center">
+        <button type="button" onclick="javascript:window.history.back()" class="btn btn-primary btn-lg btn-block">Back</button>
+      </div>
+    </div>
+    <div id="chart_div" style="width: 100%; height: 90%;"></div>
   </body>
 </html>

@@ -1,0 +1,72 @@
+<div class="row">
+        <div class="col-md-12">
+          <h1>Registration</h1>
+        </div>
+      </div>
+            <form role="form" class="gps" action="/register" method="post">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3>Boat Information</h3>
+                  <div class="form-group">
+                    <label for="">Name of Boat</label>
+                    <input type="" class="form-control" placeholder="Name of Boat" name="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Capacity</label>
+                    <input type="" class="form-control" placeholder="Capacity" name="capacity">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Boat Material</label>
+                    <select class="form-control" placeholder="Boat Material" name="material">
+                      <option selected="selected">Select Boat Material</option>
+                      <option>Steel</option>
+                      <option>Wood</option>
+                      <option>Aluminum</option>
+                      <option>Plastic</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                  <label for="">Length</label>
+                  <input type="" class="form-control" placeholder="Length" name="length">
+                  </div>
+                  <div class="form-group">
+                    <label for=""># of Motors</label>
+                    <input type="" class="form-control" placeholder="# of Motors" name="motors">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h3>Fisher Information</h3>
+                  <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="" class="form-control" placeholder="Name" name="fisherman">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="" class="form-control" placeholder="Phone" name="phone">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="" class="form-control" placeholder="Email" name="email">
+                  </div>
+                  <div class="form-group">
+                     <label for="">Country of Orgin</label>
+                     <select class="form-control" placeholder="Country" name="country">
+                      <option selected="selected">Select Country</option>
+                      <option>Mali</option>
+                      <option>Nigeria</option>
+                      <option>Ghana</option>
+                      <option>Guinea</option>
+                      <option>Togo</option>
+                    </select>
+                </div>
+                    <input type="hidden" id="gps" class="form-control" name="gps">
+                 </div>
+              </div>
+              
+              <div class="row padding-md-top">
+                <div class="col-md-4 col-md-offset-4 col-xs-12">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                </div>
+              </div>
+              
+            </form>
