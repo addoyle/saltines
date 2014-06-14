@@ -12,4 +12,8 @@ module.exports = {
 	getFish: function(id, callback) {
 		db.query('SELECT species, COUNT(*) FROM `fishackathon`.`fish_info` WHERE fish_info.fisherman =' id';', callback);
 	}
+	
+	postUserInfo: function(name,phone,email,COO, callback) {
+		db.query('INSERT INTO user_data (User_Name, Phone, Email, COO) VALUES ('name', 'phone', 'email', 'COO')';', callback);
+	}
 }
