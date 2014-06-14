@@ -6,10 +6,31 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Base Bootstrap Template</title>
+    <title>General Information</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Fish', 'Incidents'],
+          ['Senegal',  1000,      400],
+          ['Liberia',  1170,      460],
+          ['Cape Verde',  660,       1120],
+        ]);
+
+        var options = {
+          title: 'Fishery Statistics',
+          vAxis: {title: 'Country',  titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
     <!-- Bootstrap core CSS -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -18,14 +39,19 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-        
+  
   <body>
-    
-    
-    <!-- Place Content Here -->
-    <button type="button" class="btn btn-lg btn-danger">Danger</button>
-    
-    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">General Information</h1>
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
