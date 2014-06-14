@@ -22,7 +22,16 @@ app.get('/', function(req, res) {
 
 	model.getName(id, function(err, rows) {
 		if (!err) {
-			res.render('index', {user_name: rows[0].User_Name});
+			if (rows[0].License_Type != 0 && rows[0].Suspended == 0){
+				res.render('index', {user_name: rows[0].User_Name});	
+			}
+			else if (rows[0].Suspended == 0){
+				res.render('Suspended', {user_name: rows[0].User_Name});
+			}
+			else {
+				res.render('Invalid', {user_name: rows[0].User_Name});
+			}
+		
 		} else {
 			res.render('unscanned');
 		}
@@ -30,7 +39,7 @@ app.get('/', function(req, res) {
 	
 	model.getBoat(id, function(err, rows) {
 		if (!err) {
-			res.render('index', {boat: rows[0].name});
+			res.render('index', {boat: rows[0].name, status: rows[0].});
 		} else {
 			res.render('unscanned');
 		}
