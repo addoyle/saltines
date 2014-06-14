@@ -1,9 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Herp Derp</title>
-</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns='http://www.w3.org/1999/xhtml'>
+   <head >
+      <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+      <title >Registration Form</title>
+   </head>
 <body>
-	Herp Derp
+<h1>Registration Form</h1>
+<h2>Licensing request for fishermen</h2>
+
+<form action="database.php" id="regform" method="post">
+<p>
+    <label for='FirstName'>First Name:</label>
+    <input type="text" id="FirstName" name="FirstName" />
+</p>
+<p>
+    <label for='LastName'>Last Name:</label>
+    <input type="text" id="LastName" name="LastName" />
+</p>
+<p>
+    <label for='Phone'>Phone:</label>
+    <input type="text" id="Phone" name="Phone" />
+</p>
+<p>
+    <label for='Country'>Country:</label>
+    <select id="Country"  name="Country">
+        <option value="000" selected="selected">Please choose one</option>
+        <option value="001">Senegal</option>
+        <option value="002">Cape Verde</option>
+        <option value="003">Liberia</option>
+        <option value="004">Sierra Leone</option>
+        <option value="005">Ghana</option>
+    </select>
+</p>
+<p>
+    <label for='Town'>Town:</label>
+    <input type="text" id="Town" name="Town" />
+</p>
+<p>
+    <input type="submit" name="submit" value="Submit">
+</p>
+</form>
+<script  type="text/javascript">
+ var frmvalidator = new Validator("myform");
+ frmvalidator.addValidation("FirstName","req","Please enter your First Name");
+ 
+ frmvalidator.addValidation("LastName","req");
+ 
+ frmvalidator.addValidation("Email","req");
+ frmvalidator.addValidation("Email","email");
+ 
+ frmvalidator.addValidation("Phone","req");
+ frmvalidator.addValidation("Phone","numeric");
+ 
+ frmvalidator.addValidation("Country","dontselect=000");
+</script>
 </body>
 </html>
