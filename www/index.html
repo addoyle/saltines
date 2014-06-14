@@ -4,13 +4,13 @@
 <html xmlns='http://www.w3.org/1999/xhtml'>
    <head >
       <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-      <title >Form Page: sampleform</title>
+      <title >Registration Form</title>
    </head>
 <body>
 <h1>Registration Form</h1>
-<p>Licensing request from fishermen</p>
+<h2>Licensing request for fishermen</h2>
 
-<form action="" id="myform" >
+<form action="" id="myform" method="post">
 <p>
     <label for='FirstName'>First Name:</label>
     <input type="text" id="FirstName" name="FirstName" />
@@ -26,12 +26,12 @@
 <p>
     <label for='Country'>Country:</label>
     <select id="Country"  name="Country">
-        <option value="000" selected="selected">[choose yours]</option>
-        <option value="008">Senegal</option>
-        <option value="012">Cape Verde</option>
-        <option value="016">Liberia</option>
-        <option value="020">Sierra Leone</option>
-        <option value="024">Ghana</option>
+        <option value="000" selected="selected">Please choose one</option>
+        <option value="001">Senegal</option>
+        <option value="002">Cape Verde</option>
+        <option value="003">Liberia</option>
+        <option value="004">Sierra Leone</option>
+        <option value="005">Ghana</option>
     </select>
 </p>
 <p>
@@ -45,20 +45,15 @@
 <script  type="text/javascript">
  var frmvalidator = new Validator("myform");
  frmvalidator.addValidation("FirstName","req","Please enter your First Name");
- frmvalidator.addValidation("FirstName","maxlen=20",
-        "Max length for FirstName is 20");
  
  frmvalidator.addValidation("LastName","req");
- frmvalidator.addValidation("LastName","maxlen=20");
  
- frmvalidator.addValidation("Email","maxlen=50");
  frmvalidator.addValidation("Email","req");
  frmvalidator.addValidation("Email","email");
  
- frmvalidator.addValidation("Phone","maxlen=50");
+ frmvalidator.addValidation("Phone","req");
  frmvalidator.addValidation("Phone","numeric");
  
- frmvalidator.addValidation("Address","maxlen=50");
  frmvalidator.addValidation("Country","dontselect=000");
 </script>
 </body>
