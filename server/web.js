@@ -35,6 +35,14 @@ app.get('/', function(req, res) {
 			res.render('unscanned');
 		}
 	});
+	
+	model.getFish(id, function(err, rows) {
+		if (!err) {
+			res.render('index', {count: rows.COUNT(*), species: rows.species });
+		} else {
+			res.render('unscanned');
+		}
+	});
 });
 
 var server = app.listen(GLOBAL.config.port);
