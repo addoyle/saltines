@@ -3,7 +3,9 @@
 <div class="col-md-12">
 <h1 class="text-center"><%= user.User_Name %></h1>
 <h2 class="text-center">Status: <%= status %></h2>
-<h3 class="text-center"><%= fish.count %> <%= fish.species %> caught, <%= fish.weight %> kg</h3>
+<% for(var i=0; i<fishes.length; i++) {%>
+<h3 class="text-center"><%= fishes[i].count %> <%= fishes[i].species %> caught, <%= fishes[i].weight %> kg</h3>
+<% } %>
 </div>
 </div>
 <div class="row padding-md-top">

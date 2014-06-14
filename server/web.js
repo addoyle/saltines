@@ -24,6 +24,7 @@ app.get('/', function(req, res) {
 	model.getName(id, function(err, users) {
 		model.getBoat(id, function(err, ships) {
 			model.getFish(id, function(err, fishes) {
+				console.log(fishes);
 				if (!err) {
 					var status;
 					if (users[0].License_Type != 0 && users[0].Suspended == 0){
@@ -36,7 +37,7 @@ app.get('/', function(req, res) {
 						status = 'Invalid';
 					}
 
-					res.render('index', {user: users[0], ship: ships[0], fish: fishes[0], status: status});
+					res.render('index', {user: users[0], ship: ships[0], fishes: fishes, status: status});
 				} else {
 					res.render('error');
 				}

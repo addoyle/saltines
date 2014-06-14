@@ -10,7 +10,7 @@ module.exports = {
 	},
 	
 	getFish: function(id, callback) {
-		db.query("SELECT species, sum(weight) as weight, COUNT(*) as count FROM fish_info WHERE fisherman = '" + id + "';", callback);
+		db.query("SELECT distinct species, sum(weight) as weight, COUNT(*) as count FROM fish_info WHERE fisherman = '" + id + "' group by species;", callback);
 	},
 	
 	postUserAndBoat: function(body, callback) {
