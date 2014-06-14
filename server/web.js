@@ -16,4 +16,17 @@ app.get('/test', function(req, res) {
 	});
 });
 
+app.get('/', function(req, res) {
+	console.log(req);
+	var id = req.query.id || 12345678911;
+
+	model.getBoat(id, function(err, rows) {
+		if (!err) {
+			res.render('index', {boat: rows[0]});
+		} else {
+			res.render('unscanned');
+		}
+	});
+});
+
 var server = app.listen(GLOBAL.config.port);
