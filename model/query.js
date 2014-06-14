@@ -8,4 +8,8 @@ module.exports = {
 	getBoat: function(id, callback) {
 		db.query('SELECT name, owner FROM `fishackathon`.`ship_info` WHERE owner =' id ';', callback);
 	}
+	
+	getFish: function(id, callback) {
+		db.query('SELECT species, COUNT(*) FROM `fishackathon`.`fish_info` WHERE fish_info.fisherman =' id';', callback);
+	}
 }
