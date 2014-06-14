@@ -3,7 +3,7 @@
 var express = require('express');
 var app = express();
 var mysql = require('mysql');
-var model = require('../model/boat.js');
+var model = require('../model/query.js');
 
 app.use(express.static('www'));
 app.set('view engine', 'ejs');
@@ -20,9 +20,17 @@ app.get('/', function(req, res) {
 	console.log(req);
 	var id = req.query.id || 12345678911;
 
+	model.getName(id, function(err, rows) {
+		if (!err) {
+			res.render('index', {user_name: rows[0].User_Name});
+		} else {
+			res.render('unscanned');
+		}
+	});
+	
 	model.getBoat(id, function(err, rows) {
 		if (!err) {
-			res.render('index', {boat: rows[0]});
+			res.render('index', {boat: rows[0].name});
 		} else {
 			res.render('unscanned');
 		}
