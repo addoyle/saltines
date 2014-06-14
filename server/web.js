@@ -10,11 +10,11 @@ app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use(require('express-ejs-layouts'))
 
-app.get('/test', function(req, res) {
-	model.getBoats(function(err, rows) {
-		res.render('index', {solution: rows[0].solution});
-	});
-});
+//app.get('/test', function(req, res) {
+//	model.getBoats(function(err, rows) {
+//		res.render('index', {solution: rows[0].solution});
+//	});
+//});
 
 app.get('/', function(req, res) {
 	console.log(req);
