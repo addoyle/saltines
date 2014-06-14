@@ -1,60 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<html xmlns='http://www.w3.org/1999/xhtml'>
-   <head >
-      <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-      <title >Registration Form</title>
-   </head>
+    <title>Fish Information</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
 <body>
-<h1>Registration Form</h1>
-<h2>Licensing request for fishermen</h2>
-
-<form action="database.php" id="regform" method="post">
+   <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <h1 class="text-center">Fish Information Input</h1>
+        </div>
+     </div>
+<form action="" id="myform" method="post" >
+<br><input type="image" src="anchovy.jpg" name="image" width="60" height="60"><br>
 <p>
-    <label for='FirstName'>First Name:</label>
+    <label for='fweight'>Weight:</label>
     <input type="text" id="FirstName" name="FirstName" />
 </p>
+<br><input type="image" src="largehead.jpg" name="image" width="60" height="60"><br>
 <p>
-    <label for='LastName'>Last Name:</label>
-    <input type="text" id="LastName" name="LastName" />
+    <label for='fweight'>Weight:</label>
+    <input type="text" id="FirstName" name="FirstName" />
 </p>
+<br><input type="image" src="cassavafish.jpg" name="image" width="60" height="60"><br>
 <p>
-    <label for='Phone'>Phone:</label>
-    <input type="text" id="Phone" name="Phone" />
+    <label for='fweight'>Weight:</label>
+    <input type="text" id="FirstName" name="FirstName" />
 </p>
+<br><input type="image" src="chubmackerel.jpg" name="image" width="60" height="60"><br>
 <p>
-    <label for='Country'>Country:</label>
-    <select id="Country"  name="Country">
-        <option value="000" selected="selected">Please choose one</option>
-        <option value="001">Senegal</option>
-        <option value="002">Cape Verde</option>
-        <option value="003">Liberia</option>
-        <option value="004">Sierra Leone</option>
-        <option value="005">Ghana</option>
-    </select>
+    <label for='fweight'>Weight:</label>
+    <input type="text" id="FirstName" name="FirstName" />
 </p>
+<br><input type="image" src="flatsardinella.jpg" name="image" width="60" height="60"><br>
 <p>
-    <label for='Town'>Town:</label>
-    <input type="text" id="Town" name="Town" />
+    <label for='fweight'>Weight:</label>
+    <input type="text" id="FirstName" name="FirstName" />
 </p>
 <p>
     <input type="submit" name="submit" value="Submit">
 </p>
 </form>
-<script  type="text/javascript">
- var frmvalidator = new Validator("myform");
- frmvalidator.addValidation("FirstName","req","Please enter your First Name");
- 
- frmvalidator.addValidation("LastName","req");
- 
- frmvalidator.addValidation("Email","req");
- frmvalidator.addValidation("Email","email");
- 
- frmvalidator.addValidation("Phone","req");
- frmvalidator.addValidation("Phone","numeric");
- 
- frmvalidator.addValidation("Country","dontselect=000");
-</script>
 </body>
 </html>
